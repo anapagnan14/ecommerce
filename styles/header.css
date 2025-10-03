@@ -1,4 +1,39 @@
-header{
-    height: 12vh;
-    background-color: black;
+header, main, footer {
+    position: relative;
+    z-index: 1;
+}
+
+
+header {
+    background: linear-gradient(270deg, #ff1a1a, #a00000, #000, #a00000, #ff1a1a);
+    background-size: 600% 600%;
+    animation: waveGradient 8s ease infinite;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+@keyframes waveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header .logo img {
+    width: 70px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
 }

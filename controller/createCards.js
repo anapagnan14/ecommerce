@@ -1,30 +1,34 @@
+import { buscarImformacoes } from "../services/cards_services.js";
+
 const cardsSection = document.getElementById("cards");
 
-export function createCards() {
-    for (let i = 0; i < 15; i++) {
+export async function createCards() {
+    let bdCards = await buscarImformacoes();
+    for (let i = 0; i < bdCards.length; i++) {
         let card = document.createElement('div');
-        card.className = 'card';
+        card.className = 'card flip-card';
 
         let nomeJogador = document.createElement('h2');
-        nomeJogador.textContent = 'Zico';
+        nomeJogador.textContent = bdCards[i].nome;
 
         let imagem = document.createElement('img');
-        imagem.src = 'zico.webp';
+        imagem.src = bdCards[i].imagem;
 
         let idolo = document.createElement('p');
-        idolo.textContent = 'Ídolo da nação';
+        idolo.textContent = bdCards[i].dataNascimento;
 
         let dataChegada = document.createElement('p');
-        dataChegada.textContent = 'Data de chegada ao clube: 03/03/1953';
+        dataChegada.textContent = bdCards[i].periodo;
 
-        let dataSaida = document.createElement('p');
-        dataSaida.textContent = 'Data de saída do clube: 06/01/1990'
+        let descricao = document.createElement('p');
+        descricao.className = 'descricao'; 
+        descricao.textContent = bdCards[i].descricao;
 
         card.appendChild(nomeJogador);
         card.appendChild(imagem);
         card.appendChild(idolo);
         card.appendChild(dataChegada);
-        card.appendChild(dataSaida);
+        card.appendChild(descricao);
 
         cardsSection.appendChild(card);
     }
