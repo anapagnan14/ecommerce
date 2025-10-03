@@ -1,4 +1,4 @@
-const apiUrl = 'https://api-3s8z.vercel.app/idolos';
+const apiUrl = 'https://api-inky-nu-48.vercel.app/idolos';
 export async function buscarImformacoes() {
 
     try {
